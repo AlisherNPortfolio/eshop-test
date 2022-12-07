@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Modules\V1\Home\Providers\HomeServiceProvider;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->register(HomeServiceProvider::class);
     }
 }
