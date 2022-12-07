@@ -7,9 +7,9 @@ use Illuminate\Support\ServiceProvider;
 
 class HomeServiceProvider extends ServiceProvider
 {
-    protected $namespace = 'App\Modules\V1\Home\Http\Controllers';
+    protected $namespace = 'App\Modules\web\Home\Http\Controllers';
 
-    protected $apiPrefix = '/api/v1/';
+    protected $apiPrefix = '/api/v1/'; // when app is API
 
     protected $defer = 'false'; // 'defer' nima ish qilishini aniqlash
 
@@ -69,8 +69,8 @@ class HomeServiceProvider extends ServiceProvider
 
     public function routes()
     {
-        Route::prefix($this->apiPrefix)
-            ->namespace($this->namespace)
+        Route::namespace($this->namespace)
+            // ->prefix($this->apiPrefix) // when app is API
             ->middleware('api')
             ->group(__DIR__ . "/../routes/route.php");
     }

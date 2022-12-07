@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Modules\V1\Home\Providers\HomeServiceProvider;
+use App\Modules\web\Home\Providers\HomeServiceProvider;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
