@@ -1,5 +1,6 @@
 <?php
-namespace App\Modules\V1\Home\Providers;
+
+namespace App\Modules\web\Home\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -12,6 +13,21 @@ class HomeServiceProvider extends ServiceProvider
 
     protected $defer = 'false'; // 'defer' nima ish qilishini aniqlash
 
+    /**
+     * Register services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+
+    /**
+     * Bootstrap services.
+     *
+     * @return void
+     */
     public function boot()
     {
         $this->registerConfig();
@@ -20,6 +36,8 @@ class HomeServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->registerMigrations();
         }
+
+        $this->registerViews();
 
         $this->loadingRepositories();
     }
@@ -42,6 +60,11 @@ class HomeServiceProvider extends ServiceProvider
     {
         // shu module-ning migration-larini yuklab olish
         $this->loadMigrationsFrom(__DIR__ . "/../database/migrations");
+    }
+
+    protected function registerViews()
+    {
+        $this->loadViewsFrom(__DIR__ . "/../views", 'home');
     }
 
     public function routes()
