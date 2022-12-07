@@ -9,8 +9,6 @@ class HomeServiceProvider extends ServiceProvider
 {
     protected $namespace = 'App\Modules\web\Home\Http\Controllers';
 
-    protected $apiPrefix = '/api/v1/'; // when app is API
-
     protected $defer = 'false'; // 'defer' nima ish qilishini aniqlash
 
     /**
@@ -70,8 +68,7 @@ class HomeServiceProvider extends ServiceProvider
     public function routes()
     {
         Route::namespace($this->namespace)
-            // ->prefix($this->apiPrefix) // when app is API
-            ->middleware('api')
+            ->middleware('web')
             ->group(__DIR__ . "/../routes/route.php");
     }
 }
