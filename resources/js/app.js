@@ -1,4 +1,5 @@
 // import './bootstrap';
+import './service_worker';
 import './config';
 import './compiled';
 import './translations';
