@@ -2,6 +2,8 @@
 
 namespace App\Modules\web\Home\Providers;
 
+use App\View\Components\HomeSlider;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
@@ -38,6 +40,8 @@ class HomeServiceProvider extends ServiceProvider
         $this->registerViews();
 
         $this->loadingRepositories();
+
+        $this->registerComponents();
     }
 
     public function loadingRepositories()
@@ -70,5 +74,10 @@ class HomeServiceProvider extends ServiceProvider
         Route::namespace($this->namespace)
             ->middleware('web')
             ->group(__DIR__ . "/../routes/route.php");
+    }
+
+    private function registerComponents()
+    {
+        Blade::component('home-slider', HomeSlider::class);
     }
 }
