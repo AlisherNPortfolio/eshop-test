@@ -6,15 +6,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Home | E-Shopper</title>
-    <link href="{{ Vite::asset('resources/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ Vite::asset('resources/css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ Vite::asset('resources/css/prettyPhoto.css') }}" rel="stylesheet">
-    <link href="{{ Vite::asset('resources/css/price-range.css') }}" rel="stylesheet">
-    <link href="{{ Vite::asset('resources/css/animate.css') }}" rel="stylesheet">
-	<link href="{{ Vite::asset('resources/css/main.css') }}" rel="stylesheet">
-	<link href="{{ Vite::asset('resources/css/responsive.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ asset('resources/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('resources/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('resources/css/prettyPhoto.css') }}">
+    <link rel="stylesheet" href="{{ asset('resources/css/price-range.css') }}">
+    <link rel="stylesheet" href="{{ asset('resources/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('resources/css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('resources/css/responsive.css') }}">
     <!--[if lt IE 9]>
-    <script src="{{ Vite::asset('resources/js/html5shiv.js') }}"></script>
+    <script src="{{ asset('resources/js/html5shiv.js') }}"></script>
     {{-- <script src="{{ Vite::asset('resources/js/respond.min.js') }}"></script> --}}
     <![endif]-->
     {{-- <link rel="shortcut icon" href="{{ Vite::asset('resources/images/ico/favicon.ico') }}"> --}}
@@ -33,12 +34,11 @@
 	{{-- footer --}}
     @include('layout-components.footer')
 
-
-    <script type="module" src="{{ Vite::asset('resources/js/jquery.js') }}"></script>
-	<script type="module" src="{{ Vite::asset('resources/js/bootstrap.min.js') }}"></script>
-	<script type="module" src="{{ Vite::asset('resources/js/jquery.scrollUp.min.js') }}"></script>
-	<script type="module" src="{{ Vite::asset('resources/js/price-range.js') }}"></script>
-    <script type="module" src="{{ Vite::asset('resources/js/jquery.prettyPhoto.js') }}"></script>
-    <script type="module" src="{{ Vite::asset('resources/js/main.js') }}"></script>
+    <script src="{{ asset('resources/js/jquery.js') }}"></script>
+    <script src="{{ asset('resources/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('resources/js/jquery.scrollUp.min.js') }}"></script>
+    <script src="{{ asset('resources/js/price-range.js') }}"></script>
+    <script src="{{ asset('resources/js/jquery.prettyPhoto.js') }}"></script>
+    <script src="{{ asset('resources/js/main.js') }}"></script>
 </body>
 </html>
