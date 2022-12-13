@@ -14,12 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('languages', function (Blueprint $table) {
-            $table->string('code', 5)->unique();
+            $table->string('code', 5)->primary();
             $table->string('locale')->unique();
             $table->string('name');
-
-            $table->primary('code');
-            $table->index('code');
         });
     }
 
@@ -32,7 +29,6 @@ return new class extends Migration
     {
         Schema::table('languages', function (Blueprint $table) {
             $table->dropPrimary(["code"]);
-            $table->dropIndex(['code']);
         });
 
         Schema::dropIfExists('languages');

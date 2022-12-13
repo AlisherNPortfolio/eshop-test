@@ -18,7 +18,8 @@ return new class extends Migration
             $table->foreignId("product_id")->constrained("products");
             $table->string("name");
             $table->text("description");
-            $table->foreignId("lang_id")->constrained('languages', 'code');
+            $table->string("lang_code", 2);
+            $table->foreign("lang_code")->references("code")->on("languages");
         });
     }
 
@@ -30,7 +31,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('product_translations', function (Blueprint $table) {
-            $table->dropForeign(["lang_id"]);
+            $table->dropForeign(["lang_code"]);
             $table->dropForeign(["product_id"]);
         });
         Schema::dropIfExists('product_translations');
