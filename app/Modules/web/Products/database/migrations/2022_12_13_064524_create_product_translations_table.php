@@ -30,7 +30,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('product_translations', function (Blueprint $table) {
-            $table->dropForeign(["product_id", "lang_id"]);
+            $table->dropForeign(["lang_id"]);
+            $table->dropForeign(["product_id"]);
         });
         Schema::dropIfExists('product_translations');
     }

@@ -37,7 +37,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropForeign(['brand_id', 'category_id']);
+            $table->dropForeign(['brand_id']);
+            $table->dropForeign(['category_id']);
             $table->dropIndex("unique_name_index");
         });
 
