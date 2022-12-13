@@ -7,6 +7,7 @@ use App\Modules\web\Brands\Providers\BrandsServiceProvider;
 use App\Modules\web\Categories\Providers\CategoriesServiceProvider;
 use App\Modules\web\Home\Providers\HomeServiceProvider;
 use App\Modules\web\Products\Providers\ProductServiceProvider;
+use App\Modules\web\Settings\Providers\SettingsServiceProvider;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -38,6 +39,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->register(CategoriesServiceProvider::class);
         $this->app->register(BrandsServiceProvider::class);
         $this->app->register(ProductServiceProvider::class);
+        $this->app->register(SettingsServiceProvider::class);
     }
 
     protected function bootApiServiceProviders()
