@@ -7,6 +7,8 @@ use Illuminate\Support\ServiceProvider;
 
 class CategoriesServiceProvider extends ServiceProvider
 {
+    protected $name = 'categories';
+
     protected $namespace = 'App\Modules\web\Categories\Http\Controllers';
 
     protected $defer = 'false'; // 'defer' nima ish qilishini aniqlash
@@ -50,7 +52,7 @@ class CategoriesServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(
             __DIR__ . "/../config/config.php", // config path
-            "home" // merging config key in global config
+            "{$this->name}" // merging config key in global config
         );
     }
 
@@ -62,7 +64,7 @@ class CategoriesServiceProvider extends ServiceProvider
 
     protected function registerViews()
     {
-        $this->loadViewsFrom(__DIR__ . "/../views", 'home');
+        $this->loadViewsFrom(__DIR__ . "/../views", "{$this->name}");
     }
 
     public function routes()

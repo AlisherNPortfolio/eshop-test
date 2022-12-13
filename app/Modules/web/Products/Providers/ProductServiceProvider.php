@@ -5,8 +5,10 @@ namespace App\Modules\web\Products\Providers;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
-class ProductServiceProvider extends ServiceProvider
+class ProductsServiceProvider extends ServiceProvider
 {
+    protected $name = 'products';
+
     protected $namespace = 'App\Modules\web\Products\Http\Controllers';
 
     protected $defer = 'false'; // 'defer' nima ish qilishini aniqlash
@@ -50,7 +52,7 @@ class ProductServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(
             __DIR__ . "/../config/config.php", // config path
-            "home" // merging config key in global config
+            "{$this->name}" // merging config key in global config
         );
     }
 
@@ -62,7 +64,7 @@ class ProductServiceProvider extends ServiceProvider
 
     protected function registerViews()
     {
-        $this->loadViewsFrom(__DIR__ . "/../views", 'products');
+        $this->loadViewsFrom(__DIR__ . "/../views", "{$this->name}");
     }
 
     public function routes()

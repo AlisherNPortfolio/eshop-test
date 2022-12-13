@@ -6,7 +6,7 @@ use App\Modules\api\V1\Home\Providers\APIHomeServiceProvider;
 use App\Modules\web\Brands\Providers\BrandsServiceProvider;
 use App\Modules\web\Categories\Providers\CategoriesServiceProvider;
 use App\Modules\web\Home\Providers\HomeServiceProvider;
-use App\Modules\web\Products\Providers\ProductServiceProvider;
+use App\Modules\web\Products\Providers\ProductsServiceProvider;
 use App\Modules\web\Settings\Providers\SettingsServiceProvider;
 use Illuminate\Support\ServiceProvider;
 
@@ -38,7 +38,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->register(HomeServiceProvider::class);
         $this->app->register(CategoriesServiceProvider::class);
         $this->app->register(BrandsServiceProvider::class);
-        $this->app->register(ProductServiceProvider::class);
+        $this->app->register(ProductsServiceProvider::class);
         $this->app->register(SettingsServiceProvider::class);
     }
 

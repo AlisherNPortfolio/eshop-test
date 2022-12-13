@@ -9,6 +9,9 @@ use Illuminate\Support\ServiceProvider;
 
 class HomeServiceProvider extends ServiceProvider
 {
+
+    protected $name = 'home';
+
     protected $namespace = 'App\Modules\web\Home\Http\Controllers';
 
     protected $defer = 'false'; // 'defer' nima ish qilishini aniqlash
@@ -54,7 +57,7 @@ class HomeServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(
             __DIR__ . "/../config/config.php", // config path
-            "home" // merging config key in global config
+            "{$this->name}" // merging config key in global config
         );
     }
 
@@ -66,7 +69,7 @@ class HomeServiceProvider extends ServiceProvider
 
     protected function registerViews()
     {
-        $this->loadViewsFrom(__DIR__ . "/../views", 'home');
+        $this->loadViewsFrom(__DIR__ . "/../views", "{$this->name}");
     }
 
     public function routes()
