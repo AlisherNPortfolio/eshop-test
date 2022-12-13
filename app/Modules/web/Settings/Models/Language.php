@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Modules\web\Settings\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -12,4 +12,8 @@ class Language extends Model
     protected $fillable = ['code', 'locale', 'name'];
 
     public $timestamps = false;
+
+    protected $keyType = 'string';
+
+    public $incrementing = false;
 }
