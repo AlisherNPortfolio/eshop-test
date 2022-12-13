@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\Modules\web\Home\View\Components;
 
 use Illuminate\View\Component;
 

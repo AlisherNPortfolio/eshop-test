@@ -2,7 +2,7 @@
 
 namespace App\Modules\web\Home\Providers;
 
-use App\View\Components\HomeSlider;
+use App\Modules\web\Home\View\Components\HomeSlider;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
