@@ -32,7 +32,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('categories', function (Blueprint $table) {
-            $table->dropIndex("unique_name");
+            $table->dropIndex(["unique_name"]);
             $table->dropForeign(['parent_id']);
         });
 

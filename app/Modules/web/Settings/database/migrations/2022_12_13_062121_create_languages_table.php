@@ -31,8 +31,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('languages', function (Blueprint $table) {
-            $table->dropPrimary("languages_code_primary");
-            $table->dropIndex("code_index");
+            $table->dropPrimary(["code"]);
+            $table->dropIndex(['code']);
         });
 
         Schema::dropIfExists('languages');

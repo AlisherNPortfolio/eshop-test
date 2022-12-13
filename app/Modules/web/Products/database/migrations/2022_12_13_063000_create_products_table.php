@@ -39,7 +39,7 @@ return new class extends Migration
         Schema::table('products', function (Blueprint $table) {
             $table->dropForeign(['brand_id']);
             $table->dropForeign(['category_id']);
-            $table->dropIndex("unique_name_index");
+            $table->dropIndex(['unique_name']);
         });
 
         Schema::dropIfExists('products');
