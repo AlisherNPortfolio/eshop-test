@@ -3,13 +3,12 @@
 namespace App\Modules\web\Brands\Models;
 
 use App\Modules\web\Products\Models\Product;
-use App\Traits\Models\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Brand extends Model
 {
-    use HasFactory, Translatable;
+    use HasFactory;
 
     protected $fillable = ['unique_name'];
 

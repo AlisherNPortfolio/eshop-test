@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
             $table->string('unique_name')->unique();
+            $table->string("name");
+            $table->string('logo', 32)->nullable();
             $table->index('unique_name');
         });
     }
@@ -27,9 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('brands', function (Blueprint $table) {
-            $table->dropIndex('unique_name_index');
-        });
         Schema::dropIfExists('brands');
     }
 };
