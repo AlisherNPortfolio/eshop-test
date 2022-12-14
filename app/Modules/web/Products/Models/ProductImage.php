@@ -13,6 +13,10 @@ class ProductImage extends Model
 
     public $timestamps = false;
 
+    protected $casts = [
+        'is_main' => 'boolean'
+    ];
+
     public function product()
     {
         return $this->belongsTo(Product::class);
