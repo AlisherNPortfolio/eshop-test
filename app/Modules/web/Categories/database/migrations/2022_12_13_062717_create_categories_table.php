@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer("lft");
             $table->integer("rght");
-            $table->foreignId("parent_id")->constrained("categories");
+            $table->foreignId("parent_id")->nullable()->constrained("categories");
             $table->string("unique_name")->unique();
 
             $table->index("unique_name");
