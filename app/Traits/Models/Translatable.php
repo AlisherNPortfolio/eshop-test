@@ -10,14 +10,24 @@ trait Translatable {
 
     public function translations()
     {
-        $reflection = new \ReflectionClass($this);
-        $modelName = $this->translatableModel ?? "{$reflection->name}Translation";
-
-        return $this->hasMany($modelName::class);
+        return $this->hasMany(
+            $this->getChildClass()
+        );
     }
 
     public function scopeLang($q, $langId)
     {
         return $q->with('translations')->where("{$this->langIdName}", $langId);
+    }
+
+    private function getChildClass()
+    {
+        $reflection = new \ReflectionClass($this);
+        $classNameArr = explode('\\', $reflection->name);
+        $className = array_pop($classNameArr);
+
+        $classNamespace = implode("\\", $classNameArr);
+
+        return $this->translatableModel ?? "{$classNamespace}\\{$className}Translation";
     }
 }
