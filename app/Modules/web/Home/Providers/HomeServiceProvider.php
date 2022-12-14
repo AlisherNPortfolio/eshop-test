@@ -2,6 +2,8 @@
 
 namespace App\Modules\web\Home\Providers;
 
+use App\Modules\web\Home\View\Components\Brands;
+use App\Modules\web\Home\View\Components\Categories;
 use App\Modules\web\Home\View\Components\HomeSlider;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
@@ -82,5 +84,7 @@ class HomeServiceProvider extends ServiceProvider
     private function registerComponents()
     {
         Blade::component('home-slider', HomeSlider::class);
+        Blade::component('categories', Categories::class);
+        Blade::component('brands', Brands::class);
     }
 }
