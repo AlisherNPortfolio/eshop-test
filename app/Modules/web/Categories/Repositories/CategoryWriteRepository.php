@@ -5,9 +5,10 @@ namespace App\Modules\web\Categories\Repositories;
 use App\Base\Repositories\BaseRepository;
 use App\Base\Repositories\Contracts\IBaseWriteRepository;
 use App\Modules\web\Categories\Models\Category;
+use App\Modules\web\Categories\Repositories\Contracts\ICategoryWriteRepository;
 use Illuminate\Database\Eloquent\Model;
 
-class CategoryWriteRepository extends BaseRepository implements IBaseWriteRepository
+class CategoryWriteRepository extends BaseRepository implements ICategoryWriteRepository
 {
     public function __construct(Category $model)
     {
