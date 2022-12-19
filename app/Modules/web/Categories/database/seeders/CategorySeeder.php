@@ -23,15 +23,11 @@ class CategorySeeder extends Seeder
             //1
             [
                 'parent_id' => null,
-                'lft' => 1,
-                'rght' => 36,
                 'unique_name' => 'root'
             ],
             //2
             [
                 'parent_id' => 1,
-                'lft' => 2,
-                'rght' => 13,
                 'unique_name' => Str::slug('sportwears'),
                 'translation' => [
                     [
@@ -44,8 +40,6 @@ class CategorySeeder extends Seeder
             //3
             [
                 'parent_id' => 2,
-                'lft' =>3,
-                'rght' => 4,
                 'unique_name' => 'nike',
                 'translation' => [
                     [
@@ -58,8 +52,6 @@ class CategorySeeder extends Seeder
             //4
             [
                 'parent_id' => 2,
-                'lft' => 5,
-                'rght' => 6,
                 'unique_name' => Str::slug('Under Armour'),
                 'translation' => [
                     [
@@ -72,8 +64,6 @@ class CategorySeeder extends Seeder
             //5
             [
                 'parent_id' => 2,
-                'lft' => 7,
-                'rght' => 8,
                 'unique_name' => Str::slug('Adidas'),
                 'translation' => [
                     [
@@ -86,8 +76,6 @@ class CategorySeeder extends Seeder
             //6
             [
                 'parent_id' => 2,
-                'lft' => 9,
-                'rght' => 10,
                 'unique_name' => Str::slug('Puma'),
                 'translation' => [
                     [
@@ -100,8 +88,6 @@ class CategorySeeder extends Seeder
             // 7
             [
                 'parent_id' => 2,
-                'lft' => 11,
-                'rght' => 12,
                 'unique_name' => Str::slug('Asics'),
                 'translation' => [
                     [
@@ -114,8 +100,6 @@ class CategorySeeder extends Seeder
             // 8
             [
                 'parent_id' => 1,
-                'lft' => 14,
-                'rght' => 23,
                 'unique_name' => Str::slug('Mens'),
                 'translation' => [
                     [
@@ -128,8 +112,6 @@ class CategorySeeder extends Seeder
             // 9
             [
                 'parent_id' => 8,
-                'lft' => 15,
-                'rght' => 16,
                 'unique_name' => Str::slug('Fendi'),
                 'translation' => [
                     [
@@ -142,8 +124,6 @@ class CategorySeeder extends Seeder
             //10
             [
                 'parent_id' => 8,
-                'lft' => 17,
-                'rght' => 18,
                 'unique_name' => Str::slug('Guess'),
                 'translation' => [
                     [
@@ -156,8 +136,6 @@ class CategorySeeder extends Seeder
             //11
             [
                 'parent_id' => 8,
-                'lft' => 19,
-                'rght' => 20,
                 'unique_name' => Str::slug('Valentino'),
                 'translation' => [
                     [
@@ -170,8 +148,6 @@ class CategorySeeder extends Seeder
             // 12
             [
                 'parent_id' => 1,
-                'lft' => 24,
-                'rght' => 33,
                 'unique_name' => Str::slug('Womens'),
                 'translation' => [
                     [
@@ -184,8 +160,6 @@ class CategorySeeder extends Seeder
             // 13
             [
                 'parent_id' => 12,
-                'lft' => 25,
-                'rght' => 26,
                 'unique_name' => Str::slug('Fendi Women'),
                 'translation' => [
                     [
@@ -198,8 +172,6 @@ class CategorySeeder extends Seeder
             //14
             [
                 'parent_id' => 12,
-                'lft' => 27,
-                'rght' => 28,
                 'unique_name' => Str::slug('Guess Women'),
                 'translation' => [
                     [
@@ -212,8 +184,6 @@ class CategorySeeder extends Seeder
             // 15
             [
                 'parent_id' => 12,
-                'lft' => 29,
-                'rght' => 30,
                 'unique_name' => Str::slug('Valentino Women'),
                 'translation' => [
                     [
@@ -226,8 +196,6 @@ class CategorySeeder extends Seeder
             // 16
             [
                 'parent_id' => 12,
-                'lft' => 31,
-                'rght' => 32,
                 'unique_name' => Str::slug('Dior Women'),
                 'translation' => [
                     [
@@ -240,8 +208,6 @@ class CategorySeeder extends Seeder
             // 17
             [
                 'parent_id' => 1,
-                'lft' => 34,
-                'rght' => 35,
                 'unique_name' => Str::slug('Kids'),
                 'translation' => [
                     [
