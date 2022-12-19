@@ -7,7 +7,7 @@ use App\Base\Repositories\Contracts\IBaseWriteRepository;
 use App\Modules\web\Categories\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 
-class BaseWriteRepository extends BaseRepository implements IBaseWriteRepository
+class CategoryWriteRepository extends BaseRepository implements IBaseWriteRepository
 {
     public function __construct(Category $model)
     {
