@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId("parent_id")->nullable()->constrained("categories");
             $table->string("unique_name")->unique();
-            $table->tinyInteger("status")->default(0);
+            $table->tinyInteger("status")->default(1);
             $table->index("unique_name");
         });
     }
