@@ -24,4 +24,8 @@ class BaseReadRepository extends BaseRepository implements IBaseReadRepository
     {
         return $this->findModel($id);
     }
+
+    public function getAsMenu()
+    {
+    }
 }
