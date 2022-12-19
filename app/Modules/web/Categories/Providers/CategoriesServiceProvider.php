@@ -2,6 +2,10 @@
 
 namespace App\Modules\web\Categories\Providers;
 
+use App\Modules\web\Categories\Repositories\CategoryReadRepository;
+use App\Modules\web\Categories\Repositories\CategoryWriteRepository;
+use App\Modules\web\Categories\Repositories\Contracts\ICategoryReadRepository;
+use App\Modules\web\Categories\Repositories\Contracts\ICategoryWriteRepository;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
@@ -44,8 +48,8 @@ class CategoriesServiceProvider extends ServiceProvider
 
     public function loadingRepositories()
     {
-        // repository-larni ularning interfeysi bilan bind qilish
-        // $this->app->bind(Interface::class, ConcreteClass::class);
+        $this->app->bind(ICategoryReadRepository::class, CategoryReadRepository::class);
+        $this->app->bind(ICategoryWriteRepository::class, CategoryWriteRepository::class);
     }
 
     protected function registerConfig()
