@@ -36,7 +36,7 @@
 			<div class="row">
 				<div class="col-sm-3">
 					<div class="left-sidebar">
-						<x-categories></x-categories>
+						<x-categories :menu="$categoryMenu"></x-categories>
 
 						<x-brands></x-brands>
 

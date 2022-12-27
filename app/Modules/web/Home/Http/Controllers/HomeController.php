@@ -16,7 +16,10 @@ class HomeController extends Controller
 
     public function index()
     {
-        dd($this->categoryRepository->getAsMenu());
-        return view('home::index');
+        $categoryMenu = $this->categoryRepository->getAsMenu();
+
+        return view('home::index', [
+            'categoryMenu' => $categoryMenu
+        ]);
     }
 }
