@@ -38,7 +38,7 @@
 					<div class="left-sidebar">
 						<x-categories :menu="$categoryMenu"></x-categories>
 
-						<x-brands></x-brands>
+						<x-brands :data="$brands"></x-brands>
 
 						<div class="price-range"><!--price-range-->
 							<h2>Price Range</h2>

@@ -6,14 +6,16 @@ use Illuminate\View\Component;
 
 class Brands extends Component
 {
+    public $brands;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //
+        $this->brands = $data;
     }
 
     /**

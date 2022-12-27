@@ -2,6 +2,10 @@
 
 namespace App\Modules\web\Brands\Providers;
 
+use App\Modules\web\Brands\Repositories\BrandReadRepository;
+use App\Modules\web\Brands\Repositories\BrandWriteRepository;
+use App\Modules\web\Brands\Repositories\Contracts\IBrandReadRepository;
+use App\Modules\web\Brands\Repositories\Contracts\IBrandWriteRepository;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
@@ -45,7 +49,8 @@ class BrandsServiceProvider extends ServiceProvider
     public function loadingRepositories()
     {
         // repository-larni ularning interfeysi bilan bind qilish
-        // $this->app->bind(Interface::class, ConcreteClass::class);
+        $this->app->bind(IBrandReadRepository::class, BrandReadRepository::class);
+        $this->app->bind(IBrandWriteRepository::class, BrandWriteRepository::class);
     }
 
     protected function registerConfig()
