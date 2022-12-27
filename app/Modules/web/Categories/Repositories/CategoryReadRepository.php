@@ -2,8 +2,8 @@
 
 namespace App\Modules\web\Categories\Repositories;
 
+use App\Base\Helper;
 use App\Base\Repositories\BaseRepository;
-use App\Base\Repositories\Contracts\IBaseReadRepository;
 use App\Modules\web\Categories\Models\Category;
 use App\Modules\web\Categories\Repositories\Contracts\ICategoryReadRepository;
 use Illuminate\Database\Eloquent\Model;
@@ -29,11 +29,11 @@ class CategoryReadRepository extends BaseRepository implements ICategoryReadRepo
 
     public function getAsMenu(): array
     {
-        $parent_id = 0;
-        $lang_code = 'en';
+        $parent_id = 1;
+        $lang_code = "en";
 
-        return DB::select("
-                WITH RECURSIVE category_menu AS (
+        $sql = <<<SQL
+        WITH RECURSIVE category_menu AS (
                     select id,
                     unique_name,
                     parent_id,
@@ -59,6 +59,13 @@ class CategoryReadRepository extends BaseRepository implements ICategoryReadRepo
                 from category_menu
                 join category_translations ct on category_menu.id = ct.category_id
                 where ct.lang_code = ? AND category_menu.status = 1
-                ", [$parent_id, $lang_code]);
+                order by parent_id asc;
+SQL;
+
+        $categories = DB::select(DB::raw($sql), [$parent_id, $lang_code]);
+
+        $menu = Helper::buildMenu($categories, 1);
+
+        return $menu;
     }
 }
