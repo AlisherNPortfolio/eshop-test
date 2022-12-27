@@ -15,5 +15,15 @@ class ProductReadRepository extends BaseRepository implements IProductReadReposi
 
     public function featureProducts()
     {
+        return $this->model::query()
+            ->with(['translations' => function ($query) {
+                $query->where('lang_code', '=', "en");
+            }, 'photos' => function ($query) {
+                $query->where('is_main', true);
+            }])
+            ->orderByDesc('created_at')
+            ->limit(6)
+            ->get()
+            ->toArray();
     }
 }

@@ -2,6 +2,10 @@
 
 namespace App\Modules\web\Products\Providers;
 
+use App\Modules\web\Products\Repositories\Contracts\IProductReadRepository;
+use App\Modules\web\Products\Repositories\Contracts\IProductWriteRepository;
+use App\Modules\web\Products\Repositories\ProductReadRepository;
+use App\Modules\web\Products\Repositories\ProductWriteRepository;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
@@ -45,7 +49,8 @@ class ProductsServiceProvider extends ServiceProvider
     public function loadingRepositories()
     {
         // repository-larni ularning interfeysi bilan bind qilish
-        // $this->app->bind(Interface::class, ConcreteClass::class);
+        $this->app->bind(IProductReadRepository::class, ProductReadRepository::class);
+        $this->app->bind(IProductWriteRepository::class, ProductWriteRepository::class);
     }
 
     protected function registerConfig()
