@@ -30,7 +30,6 @@ class HomeController extends Controller
         $featuredProducts = $this->productRepository->featureProducts();
         $recommendedCatProducts = $this->categoryRepository->homeRecommends();
         $recommendedProducts = $this->productRepository->homeRecommends();
-        // dd($recommendedCatProducts);
         return view('home::index', [
             'categoryMenu' => $categoryMenu,
             'brands' => $brands,
