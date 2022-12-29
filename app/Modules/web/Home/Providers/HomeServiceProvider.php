@@ -5,6 +5,8 @@ namespace App\Modules\web\Home\Providers;
 use App\Modules\web\Home\View\Components\Brands;
 use App\Modules\web\Home\View\Components\Categories;
 use App\Modules\web\Home\View\Components\HomeSlider;
+use App\Modules\web\Home\View\Components\RecommendedCategories;
+use App\Modules\web\Home\View\Components\RecommendedProducts;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -86,5 +88,7 @@ class HomeServiceProvider extends ServiceProvider
         Blade::component('home-slider', HomeSlider::class);
         Blade::component('categories', Categories::class);
         Blade::component('brands', Brands::class);
+        Blade::component('recommended-categories', RecommendedCategories::class);
+        Blade::component('recommended-products', RecommendedProducts::class);
     }
 }

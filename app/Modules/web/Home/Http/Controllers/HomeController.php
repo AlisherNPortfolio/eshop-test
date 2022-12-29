@@ -28,11 +28,15 @@ class HomeController extends Controller
         $categoryMenu = $this->categoryRepository->getAsMenu();
         $brands = $this->brandRepository->homeBrands();
         $featuredProducts = $this->productRepository->featureProducts();
-        // dd($featuredProducts);
+        $recommendedCatProducts = $this->categoryRepository->homeRecommends();
+        $recommendedProducts = $this->productRepository->homeRecommends();
+        // dd($recommendedCatProducts);
         return view('home::index', [
             'categoryMenu' => $categoryMenu,
             'brands' => $brands,
-            'featuredProducts' => $featuredProducts
+            'featuredProducts' => $featuredProducts,
+            'recommendedCategories' => $recommendedCatProducts,
+            'recommendedProducts' => $recommendedProducts
         ]);
     }
 }

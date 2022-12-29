@@ -7,4 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 interface IProductReadRepository
 {
     public function featureProducts();
+
+    public function homeRecommends(): array;
 }

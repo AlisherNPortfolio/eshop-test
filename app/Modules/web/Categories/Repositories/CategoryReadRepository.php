@@ -6,7 +6,9 @@ use App\Base\Helper;
 use App\Base\Repositories\BaseRepository;
 use App\Modules\web\Categories\Models\Category;
 use App\Modules\web\Categories\Repositories\Contracts\ICategoryReadRepository;
+use App\Modules\web\Products\Models\Product;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
@@ -67,5 +69,40 @@ SQL;
         $menu = Helper::buildMenu($categories, 1);
 
         return $menu;
+    }
+
+    public function homeRecommends(): array
+    {
+        // $second1 = Carbon::now();
+        $p = $this->model::query()
+            ->has('recommendeds')
+            ->get()
+            ->toArray();
+
+        $categoryProducts = [];
+
+        foreach ($p as $item) {
+            $product = Product::query()->select(DB::raw("
+                products.id as id,
+                products.unique_name,
+                products.price,
+                product_images.url as img,
+                product_translations.name
+            "))
+                ->join("product_images", "products.id", "=", "product_images.product_id")
+                ->join("product_translations", "products.id", '=', "product_translations.product_id")
+                ->where("product_images.is_main", true)
+                ->where("product_translations.lang_code", '=', 'en')
+                ->where("products.category_id", '=', $item['id'])
+                ->limit(4)
+                ->get();
+
+
+            array_push($categoryProducts, [...$item, 'products' => $product->toArray()]);
+        }
+
+        // $second2 = Carbon::now();
+        // dd($categoryProducts, $second2->diffInMilliseconds($second1));
+        return $categoryProducts;
     }
 }

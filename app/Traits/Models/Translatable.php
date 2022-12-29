@@ -2,7 +2,8 @@
 
 namespace App\Traits\Models;
 
-trait Translatable {
+trait Translatable
+{
 
     public $translatableModel = null;
 
@@ -12,7 +13,7 @@ trait Translatable {
     {
         return $this->hasMany(
             $this->getChildClass()
-        );
+        )->where('lang_code', '=', 'en');
     }
 
     public function scopeLang($q, $langId)

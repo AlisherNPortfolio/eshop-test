@@ -2,6 +2,7 @@
 
 namespace App\Modules\web\Products\Models;
 
+use App\Models\Recommended;
 use App\Traits\Models\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -26,5 +27,10 @@ class Product extends Model
     public function photos()
     {
         return $this->hasMany(ProductImage::class);
+    }
+
+    public function recommendeds()
+    {
+        return $this->morphMany(Recommended::class, 'recommendedable');
     }
 }

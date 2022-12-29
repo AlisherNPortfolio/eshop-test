@@ -26,4 +26,20 @@ class ProductReadRepository extends BaseRepository implements IProductReadReposi
             ->get()
             ->toArray();
     }
+
+    public function homeRecommends(): array
+    {
+        return $this->model::query()
+            ->has('recommendeds')
+            ->with([
+                'photos' => function ($q) {
+                    $q->where('is_main', true);
+                },
+                'translations' => function ($q) {
+                    $q->where('lang_code', '=', 'en');
+                }
+            ])
+            ->get()
+            ->toArray();
+    }
 }
