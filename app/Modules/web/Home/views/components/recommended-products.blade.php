@@ -1,7 +1,7 @@
 <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         @foreach ($products as $product)
-        @if ($loop->iteration == 1 || $loop->iteration % 5 == 0)
+        @if ($loop->iteration == 1 || $loop->iteration % 4 == 0)
         <div class="item {{ $loop->first ? 'active' : '' }}">
             @endif
         <div class="col-sm-4">
@@ -19,7 +19,7 @@
         </div>
 
 
-        @if ($loop->iteration % 4 == 0)
+        @if ($loop->iteration % 3 == 0)
         </div>
         @endif
         @endforeach

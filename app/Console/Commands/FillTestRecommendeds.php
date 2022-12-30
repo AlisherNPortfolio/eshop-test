@@ -36,7 +36,7 @@ class FillTestRecommendeds extends Command
         DB::beginTransaction();
 
         try {
-            $products = Product::query()->whereIn('id', [1, 2, 3, 4])->get();
+            $products = Product::query()->whereIn('id', [1, 2, 3, 4, 5, 6])->get();
 
             foreach ($products as $product) {
                 $recommended = new Recommended;
