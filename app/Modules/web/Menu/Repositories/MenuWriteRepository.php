@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Modules\web\Categories\Repositories;
+namespace App\Modules\web\Menu\Repositories;
 
 use App\Base\Repositories\BaseRepository;
-use App\Modules\web\Categories\Models\Category;
-use App\Modules\web\Categories\Repositories\Contracts\ICategoryWriteRepository;
+use App\Modules\web\Menu\Models\Menu;
+use App\Modules\web\Menu\Repositories\Contracts\IMenuWriteRepository;
 use Illuminate\Database\Eloquent\Model;
 
-class CategoryWriteRepository extends BaseRepository implements ICategoryWriteRepository
+class MenuWriteRepository extends BaseRepository implements IMenuWriteRepository
 {
-    public function __construct(Category $model)
+    public function __construct(Menu $model)
     {
         parent::__constructor($model);
     }
